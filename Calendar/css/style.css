@@ -73,13 +73,58 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/*--------------------*/
+.greenTheme {
+    --bgColor: rgb(219, 226, 231);
+    --thColor: rgb(167, 247, 203);
+    --tdColor: rgb(217, 245, 245);
+    --borderColor: rgb(167, 216, 240);
+    --btnColor: rgb(214, 203, 189);
+    --btnHovColor:rgb(197, 188, 176);
+    --btnActColor: rgb(168, 161, 151);
+    --borderbtnColor: rgb(211, 191, 164);
+}
+
+.blueTheme {
+    --bgColor: rgb(195, 219, 236);
+    --thColor: rgb(151, 219, 247);
+    --tdColor: rgb(172, 221, 243);
+    --borderColor: rgb(165, 199, 209);
+    --btnColor: rgb(162, 194, 243);
+    --btnHovColor: rgb(148, 178, 223);
+    --btnActColor: rgb(136, 164, 206);
+    --borderbtnColor: rgb(139, 173, 182);
+}
+
 body {
-    background-color: #dbe2e7;
+    background-color: var(--bgColor);
     font-family: sans-serif;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     font-size: 16px;
+}
+
+body button {
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+body button:hover {
+    background-color: var(--btnHovColor);
+}
+
+body button:active {
+    background-color: var(--btnActColor);
 }
 
 body .wrapper {
@@ -141,11 +186,19 @@ body .wrapper .table-sheet .calendar-head .button-container {
 }
 
 body .wrapper .table-sheet .calendar-head .button-container button {
-    background-color: #d6cbbd;
-    border: 1px solid #d8c0a1;
+    background-color: var(--btnColor);
+    border: 1px solid var(--borderbtnColor);
     border-radius: 2px;
     margin: 0 5px;
     font-weight: bold;
+}
+
+body .wrapper .table-sheet .calendar-head .button-container button:hover {
+    background-color: var(--btnHovColor);
+}
+
+body .wrapper .table-sheet .calendar-head .button-container button:active {
+    background-color: var(--btnActColor);
 }
 
 body .wrapper .table-sheet .calendar-head .year {
@@ -167,20 +220,20 @@ body .wrapper .table-sheet .table-container {
 
 body .wrapper .table-sheet .table-container .table-wrapper table {
     display: inline-block;
-    border: 1px solid #74c8f3;
+    border: 1px solid var(--borderColor);
     border-spacing: 0px;
     border-collapse: collapse;
 }
 
 body .wrapper .table-sheet .table-container .table-wrapper table caption {
-    background-color: #a7f7cb;
-    border: 1px solid #a7d8f0;
+    background-color: var(--thColor);
+    border: 1px solid var(--borderColor);
     padding: 2px;
 }
 
 body .wrapper .table-sheet .table-container .table-wrapper table td {
-    border: 1px solid #a7d6ed;
-    background-color: #d9f5f5;
+    border: 1px solid var(--borderColor);
+    background-color: var(--tdColor);
     text-align: center;
     padding: 2px;
     min-width: 30px;
@@ -188,8 +241,8 @@ body .wrapper .table-sheet .table-container .table-wrapper table td {
 }
 
 body .wrapper .table-sheet .table-container .table-wrapper table th {
-    border: 1px solid #a7d8f0;
-    background-color: #b2f8d2;
+    border: 1px solid var(--borderColor);
+    background-color: var(--thColor);
     padding: 4px;
 }
 
@@ -206,13 +259,16 @@ body .wrapper .footer-wrapper {
 body .wrapper .footer-wrapper .settings-container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 30px 1fr 30px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+    gap: 30px;
 }
 
-body .wrapper .footer-wrapper .settings-container .year-input {
-    font-size: 20px;
+body .wrapper .footer-wrapper .settings-container .btn-date-container .year-input {
+    font-size: 23px;
+    border-radius: 5px;
+    padding: 3px 9px;
 }
 
 body .wrapper .footer-wrapper .settings-container .btn-date-container .btn-set-container {
@@ -225,11 +281,19 @@ body .wrapper .footer-wrapper .settings-container .btn-date-container .btn-set-c
 }
 
 body .wrapper .footer-wrapper .settings-container .btn-date-container .btn-set-container button {
-    background-color: #d6cbbd;
-    border: 1px solid #d8c0a1;
+    background-color: var(--btnColor);
+    border: 1px solid var(--borderbtnColor);
     border-radius: 2px;
     font-size: 16px;
-    padding: 5px;
+    padding: 10px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-date-container .btn-set-container button:hover {
+    background-color: var(--btnHovColor);
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-date-container .btn-set-container button:active {
+    background-color: var(--btnActColor);
 }
 
 body .wrapper .footer-wrapper .settings-container .btn-week-block-container .btn-week-container {
@@ -242,11 +306,19 @@ body .wrapper .footer-wrapper .settings-container .btn-week-block-container .btn
 }
 
 body .wrapper .footer-wrapper .settings-container .btn-week-block-container .btn-week-container button {
-    background-color: #d6cbbd;
-    border: 1px solid #d8c0a1;
+    padding: 7px;
+    background-color: var(--btnColor);
+    border: 1px solid var(--borderbtnColor);
     border-radius: 2px;
     font-size: 16px;
-    padding: 5px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-week-block-container .btn-week-container button:hover {
+    background-color: var(--btnHovColor);
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-week-block-container .btn-week-container button:active {
+    background-color: var(--btnActColor);
 }
 
 body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container {
@@ -262,11 +334,28 @@ body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn
     background-color: #a7f7cb;
 }
 
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container .theme1:hover {
+    background-color: #9be5bc;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container .theme1:active {
+    background-color: #91d8b1;
+}
+
 body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container .theme2 {
     background-color: #a7f2f7;
 }
 
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container .theme2:hover {
+    background-color: #9be1e5;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container .theme2:active {
+    background-color: #97dadd;
+}
+
 body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container button {
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
     font-size: 16px;
     padding: 5px;

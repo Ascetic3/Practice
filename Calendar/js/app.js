@@ -2,6 +2,8 @@
 
 const monthsEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const monthsRu = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+let weekE = ['Mn','Tu','Wd','Th','Fr','St','Su']
+let weekR = ['Пн','Вт','Cp','Чт','Пт','C6','Bc']
 let months = monthsEn
 //const nowDate = new Date()
 let dataCarrent = new Date()
@@ -11,11 +13,11 @@ let back = document.querySelector('.back');
 let btnS = document.getElementById("btn-s")
 let btnM = document.getElementById("btn-m")
 let firstDay = 'm'
-let weekE = ['Mn','Tu','Wd','Th','Fr','St','Su']
-let weekR = ['Пн','Вт','Cp','Чт','Пт','C6','Bc']
 let resetBtn = document.getElementById('reset')
 let setBtn = document.getElementById('set')
 let form = document.querySelector(".year-input");
+let BtnThemeG = document.querySelector('.theme1')
+let BtnThemeB = document.querySelector('.theme2')
 
 function render(){
     container.innerHTML = "";
@@ -137,9 +139,6 @@ function createCalendar(elem, year, month) {
 
 }
 
-
-
-
 next.onclick = () => { 
         dataCarrent.setFullYear(dataCarrent.getFullYear() + 1);
         render()
@@ -170,18 +169,47 @@ resetBtn.onclick = () => {
     render();
 };
 
+
+form.addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // код клавиши Enter
+        setBtn.click();
+    }
+});
+
+function dateValidation(date){
+    while(date.length < 4){
+        date = '0' + date;
+    };
+    return date;
+}
+
 setBtn.onclick = () => {
     if (form.value.length !== 0){
-        dataCarrent = new Date(form.value)
+        dataCarrent = new Date(dateValidation(form.value))
         form.value = ''
         render();
     }
-    // dataCarrent = 
-    // render();
-    //! неправильно реагирует на двузначные числа и однозначные
+//! неправильно реагирует на двузначные числа и однозначные
 };
 
-test
+function initialState(themeName){
+    localStorage.setItem('theme',themeName);
+    document.documentElement.className = themeName;
+}
+initialState('greenTheme')
+
+BtnThemeG.onclick = () => {
+    if (localStorage.getItem('theme') == 'blueTheme'){
+        initialState('greenTheme')
+    }
+}
+
+BtnThemeB.onclick = () => {
+    if (localStorage.getItem('theme') == 'greenTheme'){
+        initialState('blueTheme')
+    }
+}
 
 
 render()

@@ -15,24 +15,63 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 /*--------------------*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/*--------------------*/
 
+.greenTheme{
+    --bgColor: rgb(219, 226, 231);
+    --thColor: rgb(167, 247, 203);
+    --tdColor: rgb(217, 245, 245);
+    --borderColor: rgb(167, 216, 240);
+    --btnColor: rgb(214, 203, 189);
+    --btnHovColor:rgb(197, 188, 176);
+    --btnActColor: rgb(168, 161, 151);
+    --borderbtnColor: rgb(211, 191, 164);
+}
 
+.blueTheme{
+    --bgColor: rgb(195, 219, 236);
+    --thColor: rgb(151, 219, 247);
+    --tdColor: rgb(172, 221, 243);
+    --borderColor: rgb(165, 199, 209);
+    --btnColor: rgb(162, 194, 243);
+    --btnHovColor: rgb(148, 178, 223);
+    --btnActColor: rgb(136, 164, 206);
+    --borderbtnColor: rgb(139, 173, 182);
+}
 
 body{
     //width: 100%;
     //min-height: 100%;
-    background-color: rgb(219, 226, 231);
+    background-color: var(--bgColor);
     font-family: sans-serif;
-    //min-height: 100vh;
+    //max-height: 100vh;
     height: fit-content;
     font-size: 16px;
 
+    button{
+        text-transform: uppercase;
+        transition: all 0.3s;
+        &:hover{
+            background-color: var(--btnHovColor);
+        }
+        &:active{
+            background-color: var(--btnActColor);
+        }
+    }
+
     .wrapper{
+        //max-height: 100vh;
         //width: 100%;
         margin: 0 auto;
         display: grid;
         width: fit-content;
-        //height: fit-content;         
+        // height: fit-content;         
         grid-template-columns: 0.5fr 1fr 1fr;
         grid-template-rows: 0.15fr 1fr 0.3fr;
         //min-height: 100vh;                       ///////////////////////////////////////////////////////////////////////////////////
@@ -45,6 +84,7 @@ body{
             //background-color: rgb(38, 117, 117);
             grid-area: hd;
         }
+        
     
     
         .table-sheet{
@@ -64,11 +104,17 @@ body{
                     padding-top: 5px;
                     button{
                         //background-color: rgb(218, 248, 178);
-                        background-color: rgb(214, 203, 189);
-                        border: 1px solid rgb(216, 192, 161);
+                        background-color: var(--btnColor);
+                        border: 1px solid var(--borderbtnColor);
                         border-radius: 2px;
                         margin: 0 5px;
                         font-weight: bold;
+                        &:hover{
+                            background-color: var(--btnHovColor);
+                        }
+                        &:active{
+                            background-color: var(--btnActColor);
+                        }
                     }
 
                 }
@@ -93,19 +139,19 @@ body{
                     
                     table {
                         display: inline-block;
-                        border: 1px solid rgb(116, 200, 243);
+                        border: 1px solid var(--borderColor);
                         border-spacing: 0px;
                         border-collapse: collapse;
                     
                         caption {
-                            background-color: rgb(167, 247, 203);
-                            border: 1px solid rgb(167, 216, 240);
+                            background-color: var(--thColor);
+                            border: 1px solid var(--borderColor);
                             padding: 2px;
                         }
                     
                         td {
-                            border: 1px solid rgb(167, 214, 237) ;
-                            background-color: rgb(217, 245, 245);
+                            border: 1px solid var(--borderColor);
+                            background-color: var(--tdColor);
                             text-align: center;
                             padding: 2px;
                             min-width: 30px;
@@ -113,8 +159,8 @@ body{
                         }
                     
                         th {
-                            border: 1px solid rgb(167, 216, 240) ;
-                            background-color: rgb(178, 248, 210);
+                            border: 1px solid var(--borderColor);
+                            background-color: var(--thColor);
                             padding: 4px;
                         }
                     
@@ -141,23 +187,30 @@ body{
                 // justify-content: space-between;
                 grid-template-columns: 1fr 1fr 1fr;
                 justify-items: center;
-                
-                .year-input{
-                    font-size: 20px;
-                }
+                gap: 30px;
                 .btn-date-container{
-                        
+                    .year-input{
+                        font-size: 23px;
+                        border-radius: 5px;
+                        padding: 3px 9px;
+                    }
                     .btn-set-container{
                         margin-top: 10px;
                         display: grid;
                         grid-template-columns: 1fr 1fr;
                         gap: 15px;
                         button{
-                            background-color: rgb(214, 203, 189);
-                            border: 1px solid rgb(216, 192, 161);
+                            background-color: var(--btnColor);
+                            border: 1px solid var(--borderbtnColor);
                             border-radius: 2px;
                             font-size: 16px;
-                            padding: 5px;
+                            padding: 10px;
+                            &:hover{
+                                background-color: var(--btnHovColor);
+                            }
+                            &:active{
+                                background-color: var(--btnActColor);
+                            }
                         }
                         
                     }
@@ -171,11 +224,18 @@ body{
                         grid-template-columns: 1fr 1fr;
                         gap: 15px;
                         button{
-                            background-color: rgb(214, 203, 189);
-                            border: 1px solid rgb(216, 192, 161);
+                            padding: 7px;
+                            background-color: var(--btnColor);
+                            border: 1px solid var(--borderbtnColor);
                             border-radius: 2px;
                             font-size: 16px;
-                            padding: 5px;
+                            //padding: 5px;
+                            &:hover{
+                                background-color: var(--btnHovColor);
+                            }
+                            &:active{
+                                background-color: var(--btnActColor);
+                            }
                         }
                     }
                 }
@@ -189,11 +249,24 @@ body{
                         gap: 15px;
                         .theme1{
                             background-color: rgb(167, 247, 203);
+                            &:hover{
+                                background-color: rgb(155, 229, 188);
+                            }
+                            &:active{
+                                background-color: rgb(145, 216, 177);
+                            }
                         }
                         .theme2{
                             background-color: rgb(167, 242, 247);
+                            &:hover{
+                                background-color: rgb(155, 225, 229);
+                            }
+                            &:active{
+                                background-color: rgb(151, 218, 221);
+                            }
                         }
                         button{
+                            border: 1px solid var(--borderColor);
                             border-radius: 5px;
                             font-size: 16px;
                             padding: 5px;

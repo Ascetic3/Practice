@@ -1,0 +1,274 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus, :active {
+    outline: none;
+}
+
+a:focus, a:active {
+    outline: none;
+}
+
+nav, footer, header, aside {
+    display: block;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/*--------------------*/
+body {
+    background-color: #dbe2e7;
+    font-family: sans-serif;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    font-size: 16px;
+}
+
+body .wrapper {
+    margin: 0 auto;
+    display: -ms-grid;
+    display: grid;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    -ms-grid-columns: 0.5fr 1fr 1fr;
+    grid-template-columns: 0.5fr 1fr 1fr;
+    -ms-grid-rows: 0.15fr 1fr 0.3fr;
+    grid-template-rows: 0.15fr 1fr 0.3fr;
+        grid-template-areas: "hd hd hd" "mn mn mn" "ft ft ft";
+}
+
+body .wrapper .header-wrapper {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: hd;
+}
+
+body .wrapper .table-sheet {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: mn;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+}
+
+body .wrapper .table-sheet .calendar-head {
+    margin-bottom: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "bt em ye";
+}
+
+body .wrapper .table-sheet .calendar-head .button-container {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: bt;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    padding-top: 5px;
+}
+
+body .wrapper .table-sheet .calendar-head .button-container button {
+    background-color: #d6cbbd;
+    border: 1px solid #d8c0a1;
+    border-radius: 2px;
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+body .wrapper .table-sheet .calendar-head .year {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: ye;
+    font-size: 32px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+body .wrapper .table-sheet .table-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 5px 1fr 5px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+}
+
+body .wrapper .table-sheet .table-container .table-wrapper table {
+    display: inline-block;
+    border: 1px solid #74c8f3;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+body .wrapper .table-sheet .table-container .table-wrapper table caption {
+    background-color: #a7f7cb;
+    border: 1px solid #a7d8f0;
+    padding: 2px;
+}
+
+body .wrapper .table-sheet .table-container .table-wrapper table td {
+    border: 1px solid #a7d6ed;
+    background-color: #d9f5f5;
+    text-align: center;
+    padding: 2px;
+    min-width: 30px;
+    height: 25px;
+}
+
+body .wrapper .table-sheet .table-container .table-wrapper table th {
+    border: 1px solid #a7d8f0;
+    background-color: #b2f8d2;
+    padding: 4px;
+}
+
+body .wrapper .footer-wrapper {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: ft;
+    margin-top: 20px;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+body .wrapper .footer-wrapper .settings-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+body .wrapper .footer-wrapper .settings-container .year-input {
+    font-size: 20px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-date-container .btn-set-container {
+    margin-top: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 15px 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-date-container .btn-set-container button {
+    background-color: #d6cbbd;
+    border: 1px solid #d8c0a1;
+    border-radius: 2px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-week-block-container .btn-week-container {
+    margin-top: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 15px 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-week-block-container .btn-week-container button {
+    background-color: #d6cbbd;
+    border: 1px solid #d8c0a1;
+    border-radius: 2px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container {
+    margin-top: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 15px 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container .theme1 {
+    background-color: #a7f7cb;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container .theme2 {
+    background-color: #a7f2f7;
+}
+
+body .wrapper .footer-wrapper .settings-container .btn-them-container .theme-btn-container button {
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    min-height: 30px;
+}

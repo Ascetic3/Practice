@@ -1,0 +1,251 @@
+@import "nullstyle.scss";
+$colum-size: 10px;
+$main-size: 1200px;
+
+
+
+body {
+    background-color: rgb(43, 43, 57);
+    // height: 100%;
+    // width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    color: azure;
+    // background-color: rgb(43, 43, 57);
+    height: 100%;
+    display: grid;
+    padding: 10px;
+    // grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+    grid-template: minmax(0.5fr, auto) 1fr minmax(0.1fr, auto) / 1fr;
+    justify-items: center;
+    // grid-gap: 20px;
+
+}
+
+.header, .main, .footer{
+    // border: 1px dashed #ece89d;
+}
+
+.header {
+
+}
+.main {
+    width: 100%;
+    max-width: $main-size;
+    display: grid;
+    // justify-items: center;
+    // align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+
+}
+.calculator {
+    // border: 1px dashed #73dc46;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    grid-column: 2;
+    margin: auto;
+    .main__calc-inner{
+        // border: 1px dashed #dc46c3;                
+        // width: 100%;
+        display: grid;
+        grid-gap: 7px;
+        grid-template: minmax($colum-size , 1fr) minmax($colum-size, auto)  minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) / 1fr ;
+        // grid-template: 0.1fr, 0.1fr,  0.1fr,  0.1fr,  0.1fr,  0.5fr/ 1fr;
+        // justify-items: center;
+        // align-items: center;
+        grid-template-areas: 
+        "title"
+        "in1"
+        "in2"
+        "actions"
+        "btm_do"
+        "out";
+
+        * {
+            padding: 10px;
+        }
+
+        .title {
+            // border: 1px dashed #fd0000; 
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            grid-area: title;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .btm{
+            border-radius: 10px;
+            
+        }
+        
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            // -webkit-appearance: none;
+            // margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+            display: none;
+        }
+
+        input[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
+
+        .intput_1 {
+            grid-area: in1; 
+            border-radius: 10px;
+            
+        }
+
+        .input2 {
+            grid-area: in2; 
+            border-radius: 10px;
+        } 
+        .actions{
+            padding: 0;
+            grid-area: actions;
+            display: grid;
+            // grid-auto-flow: column;
+            grid-gap: 5px 5px;
+            grid-template: 1fr 1fr / 1fr 1fr;
+            // grid-template-areas: 
+            // "plus" "minus"
+            // "muli" "dev";
+
+            // .calculator__button-plus {
+            //    background-color: rgba(0, 128, 0, 0.558);
+            //    font-size: 25px;
+            //    font-weight: bolder;
+                
+            // }
+
+            // .calculator__button-plus:hover{
+            //     background-color: rgba(43, 177, 43, 0.911);
+
+            // }
+            // .calculator__button-plus:active{
+            //     background-color: rgb(0, 128, 0);
+            // }
+
+            // .calculator__button-minus{
+            //     background-color: rgba(182, 9, 9, 0.863);
+            //     font-size: 25px;
+            //     font-weight: bolder;
+            // }
+
+            // .calculator__button-minus:hover{
+            //     background-color: rgba(255, 55, 55, 0.979);
+            // }
+            // .calculator__button-minus:active{
+            //     background-color: rgba(255, 4, 4, 0.959);
+            // }
+            
+            .calculator__button-minus{
+                
+            }
+
+
+
+            .btm {
+                background-color: rgba(64, 183, 238, 0.76);
+                font-family: bold;
+                font-size: 2em;
+                
+            }
+           
+
+            .btm:hover {
+                background-color: rgb(64, 183, 238);
+            }
+
+            .btm:active {
+                background-color: rgba(41, 111, 241, 0.76);
+            }
+
+        }
+        
+        .calculator__button-do {
+            grid-area: btm_do;
+            color: rgba(64, 183, 238, 0.76);
+            border: 1px solid rgba(64, 183, 238, 0.76);;
+            background-color: rgb(43, 43, 57);
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .calculator__button-do:hover {
+            background-color: rgb(64, 183, 238);
+            color: black;
+        }
+        
+        .calculator__button-do:active {
+            background-color: rgba(41, 111, 241, 0.76);
+            color: black;
+        }
+
+
+        
+        .out {
+            text-align: center;
+            grid-area: out;
+            background-color: white;
+            color: black;
+            line-height: 15px;
+            border-radius: 15px;
+            p.out_title{
+                font-weight: bold;
+                
+            }
+        }
+    }
+  
+}
+
+
+@media (max-width:$main-size){
+    .main{
+        max-width: 970px;
+        // .main__calc-inner{
+        //     grid-template: minmax($colum-size , 1fr) minmax($colum-size, auto)  minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) / 1fr ;
+        // }
+        font-size: 14px;
+        
+    }
+
+}
+    
+
+
+@media (max-width:992px){
+    .main{
+        max-width: 750px;
+        // .main__calc-inner{
+        //     grid-template: minmax($colum-size , 1fr) minmax($colum-size, auto)  minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) / 1fr ;
+        // }
+    }
+
+}
+
+
+
+@media (max-width:767px){
+    .main{
+        max-width: none;
+        // .main__calc-inner{
+        //     grid-template: minmax($colum-size , 1fr) minmax($colum-size, auto)  minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) minmax($colum-size, auto) / 1fr ;
+        // }
+    }
+    
+}
+
+
+
+.footer {
+
+}

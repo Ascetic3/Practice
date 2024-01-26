@@ -1,0 +1,209 @@
+@import "nullstyle.scss";
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    // background-color: rgb(52, 77, 99);
+    background-color: rgb(43, 43, 57);
+    padding: 20px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: 100px 1fr 0.1fr;
+
+    main{
+        
+        display: grid;
+        grid-template-rows: 40px 1fr 40px;
+        // align-items: center;
+        
+        .note-container{
+            
+            
+            grid-row: 2;
+            display: grid;
+            grid-template-columns:1fr minmax(200px, 350px) 1fr;
+            .container {
+                grid-column: 2;
+                // max-width: 400px;
+                // grid-row: 2;
+                // align-items: center;
+                // min-width: 0.5fr;
+                display: grid;
+                
+                grid-gap: 10px;
+                // grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr;
+                grid-template-rows: 28px 38px 36px minmax(40px,auto);
+                // align-items: center;
+                h1 {
+                    font-size: 2em;
+                    color: aliceblue;
+                    display: grid;
+                    align-items: end;
+                    justify-content: center;
+                    -webkit-touch-callout: none; /* iOS Safari */
+                    -webkit-user-select: none; /* Safari */
+                    -khtml-user-select: none; /* Konqueror HTML */
+                    -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                                  supported by Chrome, Edge, Opera and Firefox */
+                }
+                .input {
+                    padding: 10px;
+                    border-radius: 10px;
+                    border: 1.5px rgb(40, 146, 196) solid;   
+                }
+                .input:focus{
+                    //outline: none;
+                    border-color: #44a4f3;
+                    box-shadow: 0 0 5px #4da5ec;
+                }
+                
+
+                .add-new {
+                    border-radius: 10px;
+                    background-color: rgb(43, 43, 57);
+                    border: 1px rgb(40, 146, 196) solid;
+                    padding: 10px;
+                    color: rgb(40, 146, 196);
+                }
+
+                .add-new:hover{
+                    background-color: rgba(46, 82, 161, 0.651);
+                }
+                .add-new:active{
+                    background-color: rgb(46, 82, 161);
+                }
+
+                .list-group {
+                    background:  rgb(43, 43, 57); 
+                    // display: grid;
+                    // grid-template-columns: 1fr 1fr 1fr;
+                    border-radius: 3px;
+                    padding: 2px;
+                    li{
+                        border: rgb(43, 43, 57) 2px solid;
+                        background-color: white;
+                        padding: 10px;
+                        border-radius: 5px;
+                        // color: aqua;
+                        display: grid;
+                        grid-template-columns: 4fr  0.5fr 1fr;
+                        // grid-template-areas: "title" "spase" "btms";
+
+                        .text-decoration-line-through{
+                            text-decoration: line-through;
+                        }
+
+                        .item__title{
+                            // background-color: brown;
+                            // grid-area: title;
+                            grid-column-start: 1;
+                            grid-column-end: 2;
+                            display: flex;
+                            align-items: center;
+                            -webkit-touch-callout: none; /* iOS Safari */
+                            -webkit-user-select: none; /* Safari */
+                            -khtml-user-select: none; /* Konqueror HTML */
+                            -moz-user-select: none; /* Old versions of Firefox */
+                            -ms-user-select: none; /* Internet Explorer/Edge */
+                            user-select: none; /* Non-prefixed version, currently
+                                                          supported by Chrome, Edge, Opera and Firefox */
+                            
+                        }
+                        .btm-block{
+                            // background-color: aqua;
+                            // grid-area: btms;
+                            grid-column-start: 3;
+                            grid-column-end: end;
+                            font-size: 1.5em;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            grid-gap: 6px;
+
+                            .btn-succes {
+                                display: block;
+                                background-color: rgba(0, 128, 0, 0.753);
+                                color: aliceblue;
+                                // width: 20px;
+                                // height: 20px;
+                                text-align: center;
+                                border-radius: 5px;
+                                -webkit-touch-callout: none; /* iOS Safari */
+                                -webkit-user-select: none; /* Safari */
+                                -khtml-user-select: none; /* Konqueror HTML */
+                                -moz-user-select: none; /* Old versions of Firefox */
+                                -ms-user-select: none; /* Internet Explorer/Edge */
+                                user-select: none; /* Non-prefixed version, currently
+                                                              supported by Chrome, Edge, Opera and Firefox */
+                            }
+
+                            .btn-warning{
+                                display: block;
+                                background-color: rgba(119, 129, 119, 0.753);
+                                color: aliceblue;
+                                // width: 20px;
+                                // height: 20px;
+                                text-align: center;
+                                border-radius: 5px;
+                                -webkit-touch-callout: none; /* iOS Safari */
+                                -webkit-user-select: none; /* Safari */
+                                -khtml-user-select: none; /* Konqueror HTML */
+                                -moz-user-select: none; /* Old versions of Firefox */
+                                -ms-user-select: none; /* Internet Explorer/Edge */
+                                user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+                                
+                            }
+
+                            .btn-succes:hover{
+                                cursor: pointer;
+                                background-color: rgb(0, 128, 0);
+                            }
+                            .btn-succes:active{
+                                background-color: rgb(1, 155, 1);
+                            }
+
+                            .btm-delete {
+                                display: block;
+                                color: aliceblue;
+                                background-color: rgba(158, 4, 4, 0.747);
+                                text-align: center;
+                                border-radius: 5px;
+                                -webkit-touch-callout: none; /* iOS Safari */
+                                -webkit-user-select: none; /* Safari */
+                                -khtml-user-select: none; /* Konqueror HTML */
+                                -moz-user-select: none; /* Old versions of Firefox */
+                                -ms-user-select: none; /* Internet Explorer/Edge */
+                                user-select: none; /* Non-prefixed version, currently
+                                                              supported by Chrome, Edge, Opera and Firefox */
+                                // width: 10px;
+                                // height: 10px;
+                            }
+
+                            .btm-delete:hover{
+                                cursor: pointer;
+                                background-color: rgb(158, 4, 4);
+                            }
+
+                            .btm-delete:active{
+                                background-color: rgb(253, 3, 3)
+                            }
+
+
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+
+
+    footer{
+
+    }
+}
+
+
+
+

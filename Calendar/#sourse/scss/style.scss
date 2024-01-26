@@ -1,0 +1,212 @@
+/*Обнуление*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+/*--------------------*/
+
+
+
+body{
+    //width: 100%;
+    //min-height: 100%;
+    background-color: rgb(219, 226, 231);
+    font-family: sans-serif;
+    //min-height: 100vh;
+    height: fit-content;
+    font-size: 16px;
+
+    .wrapper{
+        //width: 100%;
+        margin: 0 auto;
+        display: grid;
+        width: fit-content;
+        //height: fit-content;         
+        grid-template-columns: 0.5fr 1fr 1fr;
+        grid-template-rows: 0.15fr 1fr 0.3fr;
+        //min-height: 100vh;                       ///////////////////////////////////////////////////////////////////////////////////
+        grid-template-areas: 
+            "hd hd hd"
+            "mn mn mn"
+            "ft ft ft";
+    
+        .header-wrapper{
+            //background-color: rgb(38, 117, 117);
+            grid-area: hd;
+        }
+    
+    
+        .table-sheet{
+            grid-area: mn;
+
+            .calendar-head{
+                margin-bottom: 10px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas: "bt em ye";
+                .button-container{
+                    grid-area: bt;
+                    //justify-content: center;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    justify-content: space-evenly;
+                    padding-top: 5px;
+                    button{
+                        //background-color: rgb(218, 248, 178);
+                        background-color: rgb(214, 203, 189);
+                        border: 1px solid rgb(216, 192, 161);
+                        border-radius: 2px;
+                        margin: 0 5px;
+                        font-weight: bold;
+                    }
+
+                }
+                .year{
+                    grid-area: ye;
+                    font-size: 32px;
+                    text-align: right;
+                    padding-right: 5px;
+
+                }
+            }
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+    
+            .table-container{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap:  5px;
+
+                .table-wrapper{
+                    
+                    table {
+                        display: inline-block;
+                        border: 1px solid rgb(116, 200, 243);
+                        border-spacing: 0px;
+                        border-collapse: collapse;
+                    
+                        caption {
+                            background-color: rgb(167, 247, 203);
+                            border: 1px solid rgb(167, 216, 240);
+                            padding: 2px;
+                        }
+                    
+                        td {
+                            border: 1px solid rgb(167, 214, 237) ;
+                            background-color: rgb(217, 245, 245);
+                            text-align: center;
+                            padding: 2px;
+                            min-width: 30px;
+                            height: 25px;
+                        }
+                    
+                        th {
+                            border: 1px solid rgb(167, 216, 240) ;
+                            background-color: rgb(178, 248, 210);
+                            padding: 4px;
+                        }
+                    
+                    }
+                }
+        
+                
+            }
+        }
+    
+        
+    
+        .footer-wrapper{
+            grid-area: ft;
+            //background-color: rgb(214, 203, 189);
+            margin-top: 20px;
+            font-size: 20px;
+            white-space: nowrap;
+            .settings-container{
+                // background-color: rgb(214, 203, 189);
+                // border: 1px solid rgb(216, 192, 161);
+                // border-radius: 2px;
+                display: grid;
+                // justify-content: space-between;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-items: center;
+                
+                .year-input{
+                    font-size: 20px;
+                }
+                .btn-date-container{
+                        
+                    .btn-set-container{
+                        margin-top: 10px;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 15px;
+                        button{
+                            background-color: rgb(214, 203, 189);
+                            border: 1px solid rgb(216, 192, 161);
+                            border-radius: 2px;
+                            font-size: 16px;
+                            padding: 5px;
+                        }
+                        
+                    }
+                    
+                }
+
+                .btn-week-block-container{
+                    .btn-week-container{
+                        margin-top: 10px;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 15px;
+                        button{
+                            background-color: rgb(214, 203, 189);
+                            border: 1px solid rgb(216, 192, 161);
+                            border-radius: 2px;
+                            font-size: 16px;
+                            padding: 5px;
+                        }
+                    }
+                }
+
+
+                .btn-them-container{
+                    .theme-btn-container{
+                        margin-top: 10px;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 15px;
+                        .theme1{
+                            background-color: rgb(167, 247, 203);
+                        }
+                        .theme2{
+                            background-color: rgb(167, 242, 247);
+                        }
+                        button{
+                            border-radius: 5px;
+                            font-size: 16px;
+                            padding: 5px;
+                            min-height: 30px;
+                        }
+                    }
+                }
+                // span{
+                //     font-size: 18px;
+                // }
+            }
+        }
+    }
+}
+
+
